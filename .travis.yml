@@ -1,0 +1,25 @@
+language: node_js
+cache:
+  directories:
+    - node-modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  email:
+    recipients:
+      - cabrerabaldera@gmail.com
+    on_success: always
+    on_failure: always
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  keep_history: true
+  api_key: 46674877-10ad-4122-bfe5-025075b3e6a8
+  app: platzi-store-bakend
+  on:
+    repo: BernardoVindex/platzi-store-backend
